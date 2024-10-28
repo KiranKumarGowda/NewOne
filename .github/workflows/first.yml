@@ -6,12 +6,15 @@ on :
 jobs:
     test:
         runs-on : ubuntu-latest
+        env :
+            Deploy : " Linkdin"
+            Pep :  " App is the only one "
+            DOLO : ${{secrets.DOLO}}
+
         steps:
             - name: Code Checkout 
               uses : actions/checkout@v3
             - name: Demo
-              run : echo " Hello Kiran " 
+              run : echo " Hello I have deployed the app named ${{env.Deploy}} and ${{env.Pep}}" 
             - name : Demo2 
               run :  echo " hello my secert is $DOLO "
-        env :
-            DOLO : ${{secrets.DOLO}}
