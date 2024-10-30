@@ -1,20 +1,15 @@
-name: Demo 
-on : 
-    push:
-        branches:
-            - master
+name : Test Workflow
+on :
+    workflow_dispatch:
+        inputs:
+            name:
+                description : "Entet the name"
+                required : true
+                default : :GitHub User"
+                type : string
 jobs:
     test:
         runs-on : ubuntu-latest
-        env :
-            Deploy : " Linkdin"
-            Pep :  " App is the only one "
-            DOLO : ${{secrets.DOLO}}
-
         steps:
-            - name: Code Checkout 
-              uses : actions/checkout@v3
             - name: Demo
-              run : echo " Hello I have deployed the app named ${{env.Deploy}} and ${{env.Pep}}" 
-            - name : Demo2 
-              run :  echo " hello my secert is $DOLO "
+              run: echo " The name of the event ${{github.event.inputs.name}}"
