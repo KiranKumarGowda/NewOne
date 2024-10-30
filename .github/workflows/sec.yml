@@ -1,8 +1,14 @@
-name: Demo2 
-on: workflow_dispatch
+# .github/workflows/sec.yml
+name: Demo2
+
+on: 
+  workflow_dispatch
+
 jobs:
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Darr
-              run : echo " hello Kiran and the  "
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Darr
+        run: |
+            echo "hello Kiran"
+            echo "Hello world"
