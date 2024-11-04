@@ -3,13 +3,20 @@ on :
     workflow_dispatch:
         inputs:
             name:
-                description : "Entet the name"
+                description : "Deployment environment Staging or production"
                 required : true
-                default : :GitHub User"
+                default :  "Staging"
                 type : string
+            version:
+                description: "App version to deploy"
+                required: false
+                default: "latest"
+                type: string
 jobs:
     test:
         runs-on : ubuntu-latest
         steps:
             - name: Demo
-              run: echo " The name of the event ${{github.event.inputs.name}}"
+              run: |
+                 echo " The name of the event ${{github.event.inputs.name}}"
+                 echo " The second name of the version is ${{github.event.inputs.version}}"
