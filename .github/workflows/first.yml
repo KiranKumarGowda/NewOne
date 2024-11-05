@@ -15,8 +15,12 @@ on :
 jobs:
     test:
         runs-on : ubuntu-latest
+        env:
+            data : "Kiran Gowda "
+            fame : "Start"
         steps:
             - name: Demo
               run: |
                  echo " The name of the event ${{github.event.inputs.name}}"
                  echo " The second name of the version is ${{github.event.inputs.version}}"
+                 echo " The name of the person is ${{env.data}} and ready to ${{env.fame}}"
